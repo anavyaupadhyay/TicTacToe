@@ -15,23 +15,23 @@ def checkb(p):
         if board[str(t)] == board[str(t+1)] == board[str(t+2)] == ('X' or 'O'):
             print('Winner of this match is Player {} '.format(p))
             i=0
-            return 'Game Over!'
+            
              
     for t in (0,1,2):
-        if board[str(t)] == board[str(t+3)] == board[str(t+6)] == ('X' or 'O'):
+        if (board[str(t)] == board[str(t+3)] == board[str(t+6)] == 'X' )or (board[str(t)] == board[str(t+3)] == board[str(t+6)] == 'O'):
             print('Winner of this match is Player {} '.format(p))
             i=0
-            return 'Game Over!'
             
-    if board[str(0)] == board[str(4)] == board[str(8)] == ('X' or 'O'):
+            
+    if (board[str(0)] == board[str(4)] == board[str(8)] == 'X') or (board[str(0)] == board[str(4)] == board[str(8)] =='O'):
             print('Winner of this match is Player {} '.format(p))
             i=0
-            return 'Game Over!'
+            
 
-    if board[str(2)] == board[str(4)] == board[str(6)] == ('X' or 'O'):
+    if (board[str(2)] == board[str(4)] == board[str(6)] == 'X') or (board[str(2)] == board[str(4)] == board[str(6)] == 'O'):
             print('Winner of this match is Player {} '.format(p))
-            i=0
-            return 'Game Over!'        
+            i = 0
+                    
 def inpb(inp,P):
     if P =='A':
         board[inp] = 'X'
@@ -50,7 +50,7 @@ while i:
         inpb(inp,'B')
         checkb('B')
         printb()
-    else: 
+    if i: 
         print('Game Over!')
 
     

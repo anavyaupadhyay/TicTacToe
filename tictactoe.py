@@ -50,7 +50,7 @@ while i:
         inpb(inp,'B')
         checkb('B')
         printb()
-    if i: 
-        print('Game Over!')
-
+     
+        
+print('Game Over!')
     

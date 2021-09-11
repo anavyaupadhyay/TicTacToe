@@ -12,32 +12,30 @@ def printb():
 def checkb(p):
     global i
     for t in range(0,7,3):
-        if board[str(t)] == board[str(t+1)] == board[str(t+2)] == ('X' or 'O'):
-            print('Winner of this match is Player {} '.format(p))
+        if (board[str(t)] == board[str(t+1)] == board[str(t+2)] == 'X') or (board[str(t)] == board[str(t+1)] == board[str(t+2)] == 'O'):
+            print('Winner of the match is Player {} '.format(p))
             i=0
             
              
     for t in (0,1,2):
         if (board[str(t)] == board[str(t+3)] == board[str(t+6)] == 'X' )or (board[str(t)] == board[str(t+3)] == board[str(t+6)] == 'O'):
-            print('Winner of this match is Player {} '.format(p))
+            print('Winner of the match is Player {} '.format(p))
             i=0
             
             
     if (board[str(0)] == board[str(4)] == board[str(8)] == 'X') or (board[str(0)] == board[str(4)] == board[str(8)] =='O'):
-            print('Winner of this match is Player {} '.format(p))
+            print('Winner of the match is Player {} '.format(p))
             i=0
             
 
     if (board[str(2)] == board[str(4)] == board[str(6)] == 'X') or (board[str(2)] == board[str(4)] == board[str(6)] == 'O'):
-            print('Winner of this match is Player {} '.format(p))
-            i = 0
-                    
+            print('Winner of the match is Player {} '.format(p))
+            i = 0                   
 def inpb(inp,P):
     if P =='A':
         board[inp] = 'X'
     if P =='B':
         board[inp] = 'O'
-
 printb()
 while i:
     
@@ -49,8 +47,6 @@ while i:
         inp = input('Player B:')
         inpb(inp,'B')
         checkb('B')
-        printb()
-     
-        
+        printb()        
 print('Game Over!')
     

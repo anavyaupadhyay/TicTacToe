@@ -15,15 +15,26 @@ function clearBoard(){
 }
 
 reloadButton.addEventListener('click', clearBoard);
+var chances = 0;
 //To check all the squares
 function boardMarker() {
-    if(this.textContent ===''){
+    if((this.textContent == 'X') || (this.textContent == 'O')){
+        alert('Retry')
+    }else if(chances%2 ==0){
         this.textContent = 'X';
-    }else if(this.textContent === 'X') { 
+        chances+=1;
+    } else{
         this.textContent = 'O';
-    } else {
-        this.textContent = '';
-    } 
+        chances+=1;
+    }
+    
+    // if(this.textContent ===''){
+    //     this.textContent = 'X';
+    // }else if(this.textContent === 'X') { 
+    //     this.textContent = 'O';
+    // } else {
+    //     this.textContent = '';
+    // } 
 }
 for(var i = 0; i< squares.length; i++){
     squares[i].addEventListener('click', boardMarker);
@@ -35,7 +46,7 @@ for(var i = 0; i< squares.length; i++){
 function setboard(){
 
      var board = [$('#one').text(), $('#two').text(), $('#three').text(), $('#four').text(), $('#five').text(), $('#six').text(), $('#seven').text(), $('#eight').text(), $('#nine').text()];
-    
+     
     for( var i = 0; i < 3; i++){
         if((board[i] === board[i+3]) && (board[i+6] === board[i+3]) && (board[i] != '')){
             alert('You won');

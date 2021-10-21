@@ -10,6 +10,8 @@ function clearBoard(){
     for(var i = 0; i < squares.length; i++){
         squares[i].textContent = '';
     }
+    $('h2').text("");
+    
 }
 
 reloadButton.addEventListener('click', clearBoard);
@@ -25,53 +27,68 @@ function boardMarker() {
 }
 for(var i = 0; i< squares.length; i++){
     squares[i].addEventListener('click', boardMarker);
+    squares[i].addEventListener('click', setboard);
     
 }
 /************************************************************/
-//Testing Here
+
+function setboard(){
+
+     var board = [$('#one').text(), $('#two').text(), $('#three').text(), $('#four').text(), $('#five').text(), $('#six').text(), $('#seven').text(), $('#eight').text(), $('#nine').text()];
+    
+    for( var i = 0; i < 3; i++){
+        if((board[i] === board[i+3]) && (board[i+6] === board[i+3]) && (board[i] != '')){
+            alert('You won');
+            $('h2').text("Booyah, You Won!");
+        }
+    }
+    for( var i = 0; i < 9; i+=3){
+        if((board[i] === board[i+1]) && (board[i+1] === board[i+2]) && (board[i] !== '')){
+            alert('You won');
+            $('h2').text("Booyah, You Won!");
+        }
+    }
+    for( var i = 0; i < 3; i+=2){
+        if((board[i] === board[4]) && (board[4] === board[8-i]) && (board[4] != '')){
+            alert('You won');
+            $('h2').text("Booyah, You Won!");
+        }
+
+    }
+    
+    
+    
+    
+    console.log(board)
+}
+
+
+//modalbox
 
 
 
-// for (var i in ['one','two','three','four','five','six','seven','eight','nine']) {
-//     var temp = document.getElementById('one')
-//     board.push(temp);
-// }
-// var board = ['#','#','#','#','#','#','#','#','#'];
-// var td = document.getElementsByTagName("td");
-// for (var i = 0; i < td.length; i++) {
-//   td[i].onclick = function() {
-//     // alert(this.innerHTML);
-//     board.splice(i, 1, this.innerHTML);
-//     console.log(board);
-//   }
-  
-// }
+// Get the modal
+var modal = document.getElementById("myModal");
 
+// Get the button that opens the modal
+var btn = document.getElementById("rulesbtn");
 
-// function checkb(){
-//     var winner = document.querySelector('#Winner');
-//     console.log(squares);
-//     for( var i = 0; i < 3; i++){
-//         if(squares[i] == 'X'){
-//             alert('You won');
-//             console.log('checkb');
-//         }
-//     }
-//     for( var i = 0; i < squares.length; i+=3){
-//         if(squares[i] === squares[i+1] === squares[i+2]){
-//             winner.textContent = 'Booyah! You Won';
-//         }
-//     }
-//     if(squares[0] === squares[4] === squares[8]){
-//         winner.textContent = 'Booyah! You Won';
-//     }
-//     if(squares[2] === squares[4] === squares[6]){
-//         winner.textContent = 'Booyah! You Won';
-//     }
-// }
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
 
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
 
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
 
-
-
-//Algo
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}

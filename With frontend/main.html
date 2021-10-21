@@ -14,6 +14,21 @@
             <h1>Welcome to Tic Tac Toe</h1>
             <p>Get ready to play!</p>
             <button id = 'b' type = 'button' class = 'btn btn-primary btn-lg' name = 'button'>Restart!</button>
+            <button id = 'rulesbtn' class = 'btn btn-primary btn-lg'> Rules</button>
+            <div id = 'myModal' class = 'modal'>
+
+                <div class = 'modal-content'>
+                    <span class = 'close'>&times;</span>
+                    <ul>
+                        <li>The game is played on a grid that's 3 squares by 3 squares.</li>
+                        <li>Single click for 'X' and Double Click for 'O'.</li>
+                        <li>The first player to get 3 of her marks in a row (up, down, across, or diagonally) is the winner.</li>
+                        <li>When all 9 squares are full, the game is over. If no player has 3 marks in a row, the game ends in a tie.</li>
+                    </ul>
+                </div>
+            </div>
+            <br>
+            <h2></h2>
             <br>
             <table align = 'center'>
                 <tr>
@@ -33,13 +48,16 @@
                 </tr>
     
             </table>
+            
+
+            
 
         </div>
     
     </div>
     
     
-
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="myscript.js"></script>
 </body>
 </html>
